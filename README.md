@@ -1,18 +1,35 @@
-# Campeonato — modelagem SQL e consultas em Python
+# Sistema de Campeonatos — Python + PostgreSQL
 
-Exercício independente de modelagem relacional inspirado em um projeto público de campeonato. A estrutura original foi estudada, mas o esquema, os exemplos e a implementação Python aqui disponibilizados foram reescritos e ampliados.
+Projeto acadêmico desenvolvido no início do curso para praticar modelagem de banco de dados, SQL e integração com Python.
 
-**Referência e crédito:** [brunosilveira6/projetoscyber](https://github.com/brunosilveira6/projetoscyber), arquivo `campeonato2408bruno-68dc1fcfad469.sql`. Não foi identificada licença na listagem do repositório consultada; este material não reproduz o arquivo original integralmente.
+## Funcionalidades
 
-## Melhorias
-- Identificadores padronizados, integridade referencial e índices.
-- Restrições para valores inválidos e prevenção de inscrição em modalidade diferente da do atleta.
-- Datas ISO e massa de dados sintética.
-- Consultas analíticas e programa Python com parâmetros em vez de concatenação SQL.
-- Tratamento de configuração por variáveis de ambiente e de erros de conexão.
+- Cadastro e relacionamento de treinadores, preparadores, modalidades e atletas.
+- Registro de inscrições em eventos.
+- Consultas com `JOIN`, agrupamentos e cálculo de valores totais.
+- Consulta de inscrições por modalidade usando Python.
+- Validação de dados com chaves estrangeiras e restrições no PostgreSQL.
 
-## Execução
-Requer PostgreSQL 14+ e Python 3.10+.
+## Tecnologias
+
+- Python 3
+- PostgreSQL
+- SQL
+- Psycopg 3
+
+## Estrutura do projeto
+
+| Arquivo | Descrição |
+|---|---|
+| `schema.sql` | Criação das tabelas e relacionamentos |
+| `seed.sql` | Dados fictícios para testes |
+| `consultas.sql` | Consultas e relatórios SQL |
+| `consultar.py` | Consulta de inscrições via Python |
+| `requirements.txt` | Dependências Python |
+
+## Como executar
+
+É necessário ter PostgreSQL e Python 3.10+ instalados. Configure a variável de ambiente `DATABASE_URL` com a string de conexão do seu banco.
 
 ```bash
 psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f schema.sql
@@ -21,4 +38,8 @@ python -m pip install -r requirements.txt
 python consultar.py --modalidade Vôlei
 ```
 
-Use a variável de ambiente `DATABASE_URL` com sua conexão PostgreSQL. Os scripts de criação devem ser executados em banco vazio. **Não use dados reais sem autorização.**
+O banco deve estar vazio antes da primeira execução dos scripts. Os dados de exemplo são fictícios.
+
+## Objetivo
+
+Aplicar conceitos de banco de dados relacionais, integridade referencial, consultas SQL e acesso seguro ao banco utilizando Python.
