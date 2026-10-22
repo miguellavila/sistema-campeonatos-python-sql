@@ -1,6 +1,5 @@
 # Sistema de Campeonatos — Python + PostgreSQL
 
-Projeto acadêmico desenvolvido no início do curso para praticar modelagem de banco de dados, SQL e integração com Python.
 
 ## Funcionalidades
 
